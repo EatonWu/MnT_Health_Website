@@ -115,3 +115,13 @@ class FitnessPlan(models.Model):
         help_text='Choose how many days you will work out in a week.'
     )
 
+    # Metadata
+    class Meta:
+        ordering = ['-days']
+
+    def __str__(self):
+        return f'{self.days})'
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular instance of MyModelName."""
+        return reverse('model-detail-view', args=[str(self.id)])
