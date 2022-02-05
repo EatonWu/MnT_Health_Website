@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'MnT_Health_Website.healthhacks.apps.HealthhacksConfig'
+    # our apps.
+    'healthhacks.apps.HealthhacksConfig'
 ]
 
 MIDDLEWARE = [
