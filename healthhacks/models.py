@@ -88,7 +88,7 @@ class CalorieCalc(models.Model):
         ordering = ['-age']
 
     def __str__(self):
-        return f'{self.age})'
+        return f'{self.age}'
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
@@ -119,7 +119,7 @@ class FitnessPlan(models.Model):
         ordering = ['-days']
 
     def __str__(self):
-        return f'{self.days})'
+        return f'{self.days}'
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
