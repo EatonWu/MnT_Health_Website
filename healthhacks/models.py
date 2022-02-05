@@ -4,7 +4,6 @@ import backend.calorie_calc
 
 # Create your models here.
 
-
 class MyModelName(models.Model):
     """A typical class defining a model, derived from the Model class."""
 
