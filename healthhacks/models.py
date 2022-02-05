@@ -48,9 +48,9 @@ class User(models.Model):
 
 
 class CalorieCalc(models.Model):
-    age = models.IntegerField(help_text='Enter age.')
-    weight = models.IntegerField(help_text='Enter weight.')
-    height = models.IntegerField(help_text='Enter height in inches.')
+    age = models.PositiveSmallIntegerField(help_text='Enter age.')
+    weight = models.PositiveSmallIntegerField(help_text='Enter weight.')
+    height = models.PositiveSmallIntegerField(help_text='Enter height in inches.')
 
     GENDER_ID = (
         ('M', 'Male'),
@@ -108,7 +108,7 @@ class FitnessPlan(models.Model):
         (7, '7')
     )
 
-    days = models.IntegerField(
+    days = models.PositiveSmallIntegerField(
         choices=WORKOUT_DAYS,
         blank=True,
         default=1,
