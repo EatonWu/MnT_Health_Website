@@ -48,7 +48,7 @@ class User(models.Model):
 class CalorieCalc(models.Model):
     age = models.IntegerField(help_text='Enter age.')
     weight = models.IntegerField(help_text='Enter weight.')
-    height = models.IntegerField(help_text='Enter height.')
+    height = models.IntegerField(help_text='Enter height in inches.')
 
     GENDER_ID = (
         ('M', 'Male'),
