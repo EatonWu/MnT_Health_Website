@@ -93,3 +93,25 @@ class CalorieCalc(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
         return reverse('model-detail-view', args=[str(self.id)])
+
+
+class FitnessPlan(models.Model):
+
+    WORKOUT_DAYS = (
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    )
+
+    days = models.IntegerField(
+        max_length=1,
+        choices=WORKOUT_DAYS,
+        blank=True,
+        default=1,
+        help_text='Choose how many days you will work out in a week.'
+    )
+
