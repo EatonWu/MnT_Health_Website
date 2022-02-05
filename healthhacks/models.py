@@ -83,7 +83,21 @@ class CalorieCalc(models.Model):
         help_text='Select your level of daily activity.'
     )
 
-    cals = backend.calorie_calc.cals(BMR, activity)
+    GOAL_WEIGHT = (
+        ('l', 'Lose Weight'),
+        ('m', 'Maintain'),
+        ('g', 'Gain Weight')
+    )
+
+    goal = models.CharField(
+        max_length=1,
+        choices=GOAL_WEIGHT,
+        blank=True,
+        default='m',
+        help_text='Select your weight goal.'
+    )
+
+    cals = backend.calorie_calc.cals(BMR, activity, goal)
 
     # Metadata
     class Meta:
