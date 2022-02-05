@@ -58,7 +58,7 @@ class User(models.Model):
         ordering = ['-first_name']
 
     def __str__(self):
-        return self.first_name + self.last_name
+        return f'{self.first_name} ({self.last_name})'
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
