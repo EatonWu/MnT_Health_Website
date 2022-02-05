@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 import backend.calorie_calc
 
+
 # Create your models here.
 
 class MyModelName(models.Model):
@@ -26,7 +27,6 @@ class MyModelName(models.Model):
 
 
 class User(models.Model):
-
     # fields
     first_name = models.CharField(max_length=20, help_text='Enter first name.')
     last_name = models.CharField(max_length=20, help_text='Enter last name.')
@@ -47,9 +47,9 @@ class User(models.Model):
 
 
 class CalorieCalc(models.Model):
-    age = models.IntegerField(help_text='Enter age.')
-    weight = models.IntegerField(help_text='Enter weight.')
-    height = models.IntegerField(help_text='Enter height in inches.')
+    age = models.PositiveSmallIntegerField(help_text='Enter age.')
+    weight = models.PositiveSmallIntegerField(help_text='Enter weight.')
+    height = models.PositiveSmallIntegerField(help_text='Enter height in inches.')
 
     GENDER_ID = (
         ('M', 'Male'),
@@ -63,8 +63,6 @@ class CalorieCalc(models.Model):
         default='M',
         help_text='Enter gender.'
     )
-
-    # BMR = backend.calorie_calc.calc(gender, weight, height, age)
 
     ACTIVITY_LEVEL = (
         ('s', 'sedentary'),
@@ -82,22 +80,37 @@ class CalorieCalc(models.Model):
         help_text='Select your level of daily activity.'
     )
 
-    # cals = backend.calorie_calc.activity(BMR, activity)
+    GOAL_WEIGHT = (
+        ('l', 'Lose Weight'),
+        ('m', 'Maintain'),
+        ('g', 'Gain Weight')
+    )
+
+    goal = models.CharField(
+        max_length=1,
+        choices=GOAL_WEIGHT,
+        blank=True,
+        default='m',
+        help_text='Select your weight goal.'
+    )
+
+    BMR = backend.calorie_calc.calc(gender, weight, height, age)
+
+    cals = backend.calorie_calc.cals(BMR, activity, goal)
 
     # Metadata
     class Meta:
         ordering = ['-age']
 
     def __str__(self):
-        return f'{self.age}'
+        return f'{self.cals}'
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
-        return reverse('model-detail-view', args=[str(self.id)])
+        return reverse('model-detail-view', args=[str(self.cals)])
 
 
 class FitnessPlan(models.Model):
-
     WORKOUT_DAYS = (
         (1, '1'),
         (2, '2'),
@@ -108,7 +121,7 @@ class FitnessPlan(models.Model):
         (7, '7')
     )
 
-    days = models.IntegerField(
+    days = models.PositiveSmallIntegerField(
         choices=WORKOUT_DAYS,
         blank=True,
         default=1,
