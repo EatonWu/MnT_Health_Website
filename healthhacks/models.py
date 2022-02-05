@@ -35,7 +35,20 @@ class User(models.Model):
     age = models.IntegerField(max_length=3, help_text='Enter age.')
     weight = models.IntegerField(max_length=4, help_text='Enter weight.')
     height = models.IntegerField(max_length=3, help_text='Enter height.')
-    gender = models.CharField(max_length=1, help_text='Enter gender (M or F).')
+
+    GENDER_ID = (
+        ('M', 'Male'),
+        ('F', 'Female')
+    )
+
+    gender = models.CharField(
+        max_length=1,
+        choices=GENDER_ID,
+        blank=True,
+        default='M',
+        help_text='Enter gender.'
+    )
+
     BMR = backend.calorie_calc.calc(gender, weight, height, age)
 
     ACTIVITY_LEVEL = (
