@@ -63,7 +63,7 @@ class CalorieCalc(models.Model):
         help_text='Enter gender.'
     )
 
-    BMR = backend.calorie_calc.calc(gender, weight, height, age)
+    # BMR = backend.calorie_calc.calc(gender, weight, height, age)
 
     ACTIVITY_LEVEL = (
         ('s', 'sedentary'),
@@ -81,7 +81,7 @@ class CalorieCalc(models.Model):
         help_text='Select your level of daily activity.'
     )
 
-    cals = backend.calorie_calc.activity(BMR, activity)
+    # cals = backend.calorie_calc.activity(BMR, activity)
 
     # Metadata
     class Meta:
