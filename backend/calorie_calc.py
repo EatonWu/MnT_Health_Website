@@ -1,4 +1,5 @@
 def calc(gender, weight, height, age):
+    BMR = 0
     if gender == 'M':
         BMR = 66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)
     elif gender == 'F':
@@ -7,6 +8,7 @@ def calc(gender, weight, height, age):
 
 
 def activity(BMR, activity):
+    cals = 0
     if activity == 's':
         cals = BMR * 1.2
     elif activity == 'l':
