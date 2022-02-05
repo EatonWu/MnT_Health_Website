@@ -37,9 +37,25 @@ class User(models.Model):
     height = models.IntegerField(max_length=3, help_text='Enter height.')
     gender = models.CharField(max_length=1, help_text='Enter gender (M or F).')
 
+    ACTIVITY_LEVEL = (
+        ('s', 'sedentary'),
+        ('l', 'light'),
+        ('m', 'moderate'),
+        ('v', 'very'),
+        ('e', 'extremely')
+    )
+
+    activity = models.CharField(
+        max_length=1,
+        choices=ACTIVITY_LEVEL,
+        blank=True,
+        default='s',
+        help_text='Select your level of daily activity.'
+    )
+
     # Metadata
     class Meta:
-        ordering = ['-my_field_name']
+        ordering = ['-first_name']
 
     def __str__(self):
         return self.first_name + self.last_name
