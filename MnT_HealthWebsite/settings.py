@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # our apps.
-    'healthhacks.apps.HealthhacksConfig'
+    'healthhacks.apps.HealthhacksConfig',
+    'day_selector.apps.DaySelectorConfig',
 ]
 
 MIDDLEWARE = [

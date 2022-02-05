@@ -7,7 +7,7 @@ def calc(gender, weight, height, age):
     return BMR
 
 
-def cals(BMR, activity):
+def cals(BMR, activity, choice):
     cals = 0
     if activity == 's':
         cals = BMR * 1.2
@@ -19,21 +19,12 @@ def cals(BMR, activity):
         cals = BMR * 1.725
     elif activity == 'e':
         cals = BMR * 1.9
+    return goal(choice, cals)
+
+
+def goal(choice, cals):
+    if choice == 'l':
+        return cals - 500
+    elif choice == 'g':
+        return cals + 500
     return cals
-
-
-def hbe(gender, weight, height, age):
-    if gender == 'M':
-        BMR = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)
-    elif gender == 'F':
-        BMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.33 * age)
-    return BMR
-
-
-def msj(gender, weight, height, age):
-    if gender == 'M':
-        BMR = 5 + (10 * weight) + (6.25 * height) - (5 * age)
-    elif gender == 'F':
-        BMR = (10 * weight) + (6.25 * height) - (5 * age) - 161
-    return BMR
-

@@ -5,7 +5,6 @@ import backend.calorie_calc
 
 # Create your models here.
 
-
 class MyModelName(models.Model):
     """A typical class defining a model, derived from the Model class."""
 
@@ -65,8 +64,6 @@ class CalorieCalc(models.Model):
         help_text='Enter gender.'
     )
 
-    BMR = backend.calorie_calc.calc(gender, weight, height, age)
-
     ACTIVITY_LEVEL = (
         ('s', 'sedentary'),
         ('l', 'light'),
@@ -83,7 +80,23 @@ class CalorieCalc(models.Model):
         help_text='Select your level of daily activity.'
     )
 
-    cals = backend.calorie_calc.cals(BMR, activity)
+    GOAL_WEIGHT = (
+        ('l', 'Lose Weight'),
+        ('m', 'Maintain'),
+        ('g', 'Gain Weight')
+    )
+
+    goal = models.CharField(
+        max_length=1,
+        choices=GOAL_WEIGHT,
+        blank=True,
+        default='m',
+        help_text='Select your weight goal.'
+    )
+
+    BMR = backend.calorie_calc.calc(gender, weight, height, age)
+
+    cals = backend.calorie_calc.cals(BMR, activity, goal)
 
     # Metadata
     class Meta:
