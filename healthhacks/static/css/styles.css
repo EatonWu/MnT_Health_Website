@@ -1,0 +1,18 @@
+
+.btn {
+    color: white;
+    background-color: rgba(255, 0, 0, 0.65);
+}
+
+.btn:hover {
+    background-color: rgba(255, 0, 0, 0.90);
+}
+
+.card {
+    padding: 50px;
+    background-color: aqua;
+    width: 300px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+}
