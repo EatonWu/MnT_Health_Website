@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+import backend.calorie_calc
 
 # Create your models here.
 
@@ -36,6 +36,8 @@ class User(models.Model):
     weight = models.IntegerField(max_length=4, help_text='Enter weight.')
     height = models.IntegerField(max_length=3, help_text='Enter height.')
     gender = models.CharField(max_length=1, help_text='Enter gender (M or F).')
+    BMR = backend.calorie_calc.calc(gender, weight, height, age)
+
 
     ACTIVITY_LEVEL = (
         ('s', 'sedentary'),
@@ -52,6 +54,8 @@ class User(models.Model):
         default='s',
         help_text='Select your level of daily activity.'
     )
+
+    cals = backend.calorie_calc.activity(BMR, activity)
 
     # Metadata
     class Meta:
