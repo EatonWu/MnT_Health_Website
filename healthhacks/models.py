@@ -87,10 +87,10 @@ class CalorieCalc(models.Model):
 
     # Metadata
     class Meta:
-        ordering = ['-age']
+        ordering = ['-cals']
 
     def __str__(self):
-        return f'{self.age}'
+        return f'{self.cals}'
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
