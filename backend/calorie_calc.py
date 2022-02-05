@@ -7,7 +7,7 @@ def calc(gender, weight, height, age):
     return BMR
 
 
-def activity(BMR, activity):
+def cals(BMR, activity):
     cals = 0
     if activity == 's':
         cals = BMR * 1.2
