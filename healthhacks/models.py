@@ -65,7 +65,6 @@ class CalorieCalc(models.Model):
         help_text='Enter gender.'
     )
 
-    BMR = models.ForeignKey("BMR", on_delete=models.SET_NULL, null=True)
     BMR = backend.calorie_calc.calc(gender, weight, height, age)
 
     ACTIVITY_LEVEL = (
@@ -84,7 +83,6 @@ class CalorieCalc(models.Model):
         help_text='Select your level of daily activity.'
     )
 
-    cals = models.ForeignKey("Cals", on_delete=models.SET_NULL, null=True)
     cals = backend.calorie_calc.cals(BMR, activity)
 
     # Metadata
