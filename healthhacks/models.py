@@ -32,10 +32,12 @@ class User(models.Model):
     first_name = models.CharField(max_length=20, help_text='Enter first name.')
     last_name = models.CharField(max_length=20, help_text='Enter last name.')
     email = models.CharField(max_length=40, help_text='Enter email.')
+    calorie_count = models.ForeignKey("CalorieCalc", on_delete=models.SET_NULL, null=True)
+    fitness_plan = models.ForeignKey("FitnessPlan", on_delete=models.SET_NULL, null=True)
 
     # Metadata
     class Meta:
-        ordering = ['-first_name']
+        ordering = ['first_name']
 
     def __str__(self):
         return f'{self.first_name} ({self.last_name})'
