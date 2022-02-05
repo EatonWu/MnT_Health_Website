@@ -65,8 +65,6 @@ class CalorieCalc(models.Model):
         help_text='Enter gender.'
     )
 
-    BMR = backend.calorie_calc.calc(gender, weight, height, age)
-
     ACTIVITY_LEVEL = (
         ('s', 'sedentary'),
         ('l', 'light'),
@@ -96,6 +94,8 @@ class CalorieCalc(models.Model):
         default='m',
         help_text='Select your weight goal.'
     )
+
+    BMR = backend.calorie_calc.calc(gender, weight, height, age)
 
     cals = backend.calorie_calc.cals(BMR, activity, goal)
 

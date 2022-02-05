@@ -21,6 +21,7 @@ def cals(BMR, activity, choice):
         cals = BMR * 1.9
     return goal(choice, cals)
 
+
 def goal(choice, cals):
     if choice == 'l':
         return cals - 500
