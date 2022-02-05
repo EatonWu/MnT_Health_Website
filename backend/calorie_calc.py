@@ -7,15 +7,15 @@ def calc(gender, weight, height, age):
 
 
 def activity(BMR, activity):
-    if activity == 'sedentary':
+    if activity == 's':
         cals = BMR * 1.2
-    elif activity == 'light':
+    elif activity == 'l':
         cals = BMR * 1.375
-    elif activity == 'moderate':
+    elif activity == 'm':
         cals = BMR * 1.55
-    elif activity == 'heavy':
+    elif activity == 'v':
         cals = BMR * 1.725
-    elif activity == 'extreme':
+    elif activity == 'e':
         cals = BMR * 1.9
     return cals
 

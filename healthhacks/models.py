@@ -38,7 +38,6 @@ class User(models.Model):
     gender = models.CharField(max_length=1, help_text='Enter gender (M or F).')
     BMR = backend.calorie_calc.calc(gender, weight, height, age)
 
-
     ACTIVITY_LEVEL = (
         ('s', 'sedentary'),
         ('l', 'light'),
