@@ -82,3 +82,14 @@ class CalorieCalc(models.Model):
     )
 
     cals = backend.calorie_calc.activity(BMR, activity)
+
+    # Metadata
+    class Meta:
+        ordering = ['-age']
+
+    def __str__(self):
+        return f'{self.age})'
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular instance of MyModelName."""
+        return reverse('model-detail-view', args=[str(self.id)])
