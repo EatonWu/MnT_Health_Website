@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class DayForm(forms.Form):
-    day = forms.IntegerField(label='Day', max_value=6, min_value=1)
+    day = forms.IntegerField(label='How many days of the week do you want to exercise?', max_value=6, min_value=1)
 
 
 class CalorieForm(forms.Form):
