@@ -24,15 +24,15 @@ def index(request):
                 return HttpResponse(
                     "(Option 1) The full body workout is recommended for those who want to increase overall strength and "
                     "don’t have much time in their schedule to workout. This plan consists of a few exercises to "
-                    "work each muscle group.<br> " + "<br> <br> 3-4 sets of 10-12 reps" + "<br> -Barbell Deadlift"
-                    + "<br> -Bench Press" + "<br> -Barbell Row" + "<br> -Dumbbell curls" +
+                    "work each muscle group.<br> " + "<br> <br> 3-4 sets of 10-12 reps" +  "<br> Full Body Workout: " +
+                    "<br> -Barbell Deadlift"+ "<br> -Bench Press" + "<br> -Barbell Row" + "<br> -Dumbbell curls" +
                     "<br> -Barbell Back Squats" + "<br> -Rope Pushdowns" + "<br> -Lateral Raises <br>" +
                     "<br> <br>(Option 2) The Upper Lower Split is a divide and conquer workout split. "
                     "With one day being devoted to the upper body and the other being devoted" +
                     " to lower." + "<br> 3-4 sets of 10-12 reps" + "<br> <br> Upper Body Day:" +
                     "<br> -Bench Press" + "<br> -Bent Over Row"
                     + "<br> -Shoulder Press" + "<br> -Lat Pulldown" + "<br> -Tricep Extenstions"
-                    + "<br> -Side Lateral Raises" + "<br> -Pushups" + "<br><br> Leg Day:"
+                    + "<br> -Side Lateral Raises" + "<br> -Pushups" + "<br><br> Lower Body Day:"
                     + "<br> Front Squats" + "<br> Straight Leg Deadlift" + "<br> Calf Raises" + "<br> Leg Extensions"
                     + "<br> Hamstring Curls" + "<br> Lunges")
             if form.cleaned_data['day'] == 3:
@@ -47,23 +47,23 @@ def index(request):
                                     "<br> Seated Hamstring Curls" + "<br> Bulgarian Split Squats" + "<br> Calf Raises" +
                                     "<br> <br>(Option 2) The push/pull/legs split is a very simple training method in which you split your"
                                     " body into three parts. And each part is then trained on its own separate day." + "<br> <br>"
-                                                                                                                       " 3-4 sets of 10-12 reps" + "<br> <br> Push Workout: " + "<br> Seated Dumbbell Shoulder Press"
+                                                                                                                       " 3-4 sets of 10-12 reps" + "<br> <br> Day 1 Push Workout: " + "<br> Seated Dumbbell Shoulder Press"
                                     + "<br> Dumbbell Incline Press" + "<br> Body Weight Tricep Dips" + "<br> Rope Tricep Pushdowns"
-                                    + "<br> Incline Dumbell Fly" + "<br> Dumbbell Lateral Raises" + "<br> <br> Pull Workout:"
+                                    + "<br> Incline Dumbell Fly" + "<br> Dumbbell Lateral Raises" + "<br> <br> Day 2 Pull Workout:"
                                     + "<br> Bent Over Cable Row" + "<br> Cable Push Down" + "<br> Dumbbell Shrugs" + "<br> Bicep Curls"
-                                    + "<br> Hammer Curls" + "<br> Face Pulls" + "<br> <br> Leg Workout: " + "<br> Barbell Back Squats"
+                                    + "<br> Hammer Curls" + "<br> Face Pulls" + "<br> <br> Day 3 Leg Workout: " + "<br> Barbell Back Squats"
                                     + "<br> Seated Leg Extensions" + "<br> Calf Raises" + "<br> Seated Hamstring Curls"
                                     + "<br> Bulgarian Split Squats")
 
             if form.cleaned_data['day'] == 4:
                 return HttpResponse("(Option 1) The Upper Lower Split is a divide and conquer workout split. "
                                     "With one day being devoted to the upper body and the other being devoted "
-                                    "to lower." + "<br> <br> 3-4 sets of 10-12 reps" + "<br> <br>Upper Body Day:" + "<br> Bench Press" +
+                                    "to lower." + "<br> <br> 3-4 sets of 10-12 reps" + "<br> <br>Day 1 Upper Body Day:" + "<br> Bench Press" +
                                     "<br> Bent Over Row"
                                     + "<br> Shoulder Press" + "<br> Lat Pulldown" + "<br> Tricep Extenstions"
-                                    + "<br> Side Lateral Raises" + "<br> Pushups" + "<br><br> Leg Day:"
+                                    + "<br> Side Lateral Raises" + "<br> Pushups" + "<br><br> Day 2 Leg Day:"
                                     + "<br> Front Squats" + "<br> Straight Leg Deadlift" + "<br> Calf Raises" + "<br> Leg Extensions"
-                                    + "<br> Hamstring Curls" + "<br> Lunges")
+                                    + "<br> Hamstring Curls" + "<br> Lunges" + "<br> repeat")
             if form.cleaned_data['day'] == 5:
                 return HttpResponse(
                     "(Option 1) Push, Pull, Legs, Upper, Lower This workout split combines push,pull, legs which"
@@ -82,8 +82,8 @@ def index(request):
                     + "<br> Front Squats" + "<br> Straight Leg Deadlift" + "<br> Calf Raises" + "<br> Leg Extensions"
                     + "<br> Hamstring Curls" + "<br> Lunges" + "<br> <br>" + "(Option 2) One Muscle A Day: This workout split"
                                                                              " emphasizes a new part of the body each day of working out and allows for optimal rest." + "<br><br> 3-4 Sets of 10-12 Reps"
-                    + "<br> <br>Chest Day: " + "<br> Bench Press" + "<br> Incline Dumbbell Press" + "<br> Lower Cable Flys"
-                    + "<br> Upper Cable Flys" + "<br> Pushups" + "<br><br> Leg Day: " + "<br> Barbell Back Squats"
+                    + "<br> <br>Day 1 Chest Day: " + "<br> Bench Press" + "<br> Incline Dumbbell Press" + "<br> Lower Cable Flys"
+                    + "<br> Upper Cable Flys" + "<br> Pushups" + "<br><br> Day 2 Leg Day: " + "<br> Barbell Back Squats"
                     + "<br> Seated Leg Extensions" + "<br> Seated Hamstring Curls" + "<br> Calf Raises" + "<br> Bulgarian Split Squats"
                     + "<br> <br> Day 3 Shoulders: " + "<br> Overhead Press" + "<br> Side Lateral Raises" + "<br> Dumbbell Push Press"
                     + "<br> Cable Face Pulls" + "<br><br> Day 4 Back Day:" + "<br> Pullups" + "<br> Barbell Bentover Row"
