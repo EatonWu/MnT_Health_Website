@@ -68,10 +68,21 @@ def index(request):
                     "Cardio is recommend 2-3 times a week and for overall cardiovascular health and can done in the form "
                     "of walking, running, biking, ext." +
                     "<br><br>(Option 1) The Upper Lower Split is a divide and conquer workout split. "
+                                    +"With one day being devoted to the upper body and the other being devoted "
+                                    +"to lower." + "<br> <br> <b> 3-4 sets of 10-12 reps for all exercises </b>" + "<br> <br><b>Day 1 Upper Body Day:</b>" + "<br> Bench Press" +
+                                    "<br> Bent Over Row"
+                                    + "<br> Shoulder Press" + "<br> Lat Pulldown" + "<br> Tricep Extensions"
+                                    + "<br> Side Lateral Raises" + "<br> Pushups" + "<br><br><b> Day 2 Leg Day:</b>"
+                                    + "<br> Front Squats" + "<br> Straight Leg Deadlift" + "<br> Calf Raises" + "<br> Leg Extensions"
+                                    + "<br> Hamstring Curls" + "<br> Lunges" + "<br> <br> <b>Repeat Workout 2x a week</b>")
+            if form.cleaned_data['day'] == 5:
+                return HttpResponse("Cardio is recommend 2-3 times a week and for overall cardiovascular health and can done in the form "
+                    "of walking, running, biking, ext."+
+                    "<br><br>(Option 1) Push, Pull, Legs, Upper, Lower This workout split combines push, pull, legs which"
                     + "With one day being devoted to the upper body and the other being devoted "
                     + "to lower." + "<br> <br> <b> 3-4 sets of 10-12 reps for all exercises </b>" + "<br> <br><b>Day 1 Upper Body Day:</b>" + "<br> Bench Press" +
                     "<br> Bent Over Row"
-                    + "<br> Shoulder Press" + "<br> Lat Pulldown" + "<br> Tricep Extenstions"
+                    + "<br> Shoulder Press" + "<br> Lat Pulldown" + "<br> Tricep Extensions"
                     + "<br> Side Lateral Raises" + "<br> Pushups" + "<br><br><b> Day 2 Leg Day:</b>"
                     + "<br> Front Squats" + "<br> Straight Leg Deadlift" + "<br> Calf Raises" + "<br> Leg Extensions"
                     + "<br> Hamstring Curls" + "<br> Lunges" + "<br> <br> <b>Repeat Workout 2x a week</b>")
