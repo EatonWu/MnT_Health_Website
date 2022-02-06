@@ -100,11 +100,14 @@ class FitnessPlan(models.Model):
     )
 
     days = models.PositiveSmallIntegerField(
+        primary_key=True,
         choices=WORKOUT_DAYS,
         blank=True,
         default=1,
         help_text='Choose how many days you will work out in a week.'
     )
+
+    workout_desc = models.CharField(max_length=3000, help_text='', default='')
 
     # Metadata
     class Meta:
