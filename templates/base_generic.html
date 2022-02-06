@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-primary">
 <head>
     {% block title %}<title>Health Hacks</title>{% endblock %}
     <meta charset="utf-8">
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-<div class="container">
+<div class="container-fluid m-0">
     <header class="d-flex align-items-center justify-content-center justify-content-md-between py-3 sticky-top bg-white">
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
             <img src="logo.svg" alt="brand">
@@ -24,8 +24,8 @@
 
         <ul class="nav justify-content-center mb-md-0 nav-tabs">
             <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Calorie Calculator™</a></li>
-            <li><a href="#" class="nav-link px-2 link-dark">Fitness Planning™</a></li>
+            <li><a href="{% url 'calorie_index' %}" class="nav-link px-2 link-dark">Calorie Calculator™</a></li>
+            <li><a href="{% url 'fitness_index' %}" class="nav-link px-2 link-dark">Fitness Planning™</a></li>
             <li><a href="{% url 'dashboard' %}" class="nav-link px-2 link-dark">Profile</a></li>
         </ul>
 
