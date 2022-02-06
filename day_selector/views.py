@@ -15,21 +15,10 @@ def index(request):
         if form.is_valid():
             user = list(User.objects.filter(username__exact=request.user.username))[0]
             # return HttpResponse(form.cleaned_data['day'])
-            # instead of returning form data, render the button html file
-            if form.cleaned_data['day'] == 1:
-                fit_plan = FitnessPlan.objects.get(pk=1)
-                user.fitness_plan = fit_plan
-            elif form.cleaned_data['day'] == 2:
-                user.fitness_plan = FitnessPlan.objects.get(pk=2)
-            elif form.cleaned_data['day'] == 3:
-                user.fitness_plan = FitnessPlan.objects.get(pk=3)
-            elif form.cleaned_data['day'] == 4:
-                user.fitness_plan = FitnessPlan.objects.get(pk=4)
-            elif form.cleaned_data['day'] == 5:
-                user.fitness_plan = FitnessPlan.objects.get(pk=5)
-            elif form.cleaned_data['day'] == 6:
-                user.fitness_plan = FitnessPlan.objects.get(pk=6)
-        return HttpResponse(user.fitness_plan.workout_desc)
+            user.fitness_plan = FitnessPlan.objects.get(pk=form.cleaned_data['day'])
+            return_http_response = render(request, 'just_navbar.html')
+            return_http_response.write(user.fitness_plan.workout_desc)
+        return return_http_response
     else:
         form = forms.DayForm()
 
