@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import User, CalorieCalc, FitnessPlan
+from forms.forms import EditProfileForm
 
 
 # Create your views here.
@@ -41,3 +42,23 @@ def register_view(request):
 @login_required(login_url='/healthhacks/login')
 def edit_profile(request):
     user = list(User.objects.filter(username__exact=request.user.username))[0]
+
+    if request.method == "POST":
+        form = EditProfileForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            user.first_name = data['first_name']
+            user.last_name = data['last_name']
+            user.email = data['email']
+            user.save_base()
+            return redirect('dashboard')
+    else:
+        form = EditProfileForm()
+
+    context = {
+        'form': form,
+        'user': user,
+    }
+
+    return render(request, 'edit_profile.html', context=context)

@@ -1,5 +1,4 @@
 from django import forms
-from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 
@@ -52,3 +51,9 @@ class CalorieForm(forms.Form):
         widget=forms.RadioSelect(choices=GOAL_WEIGHT),
         help_text='Select your weight goal.'
     )
+
+
+class EditProfileForm(forms.Form):
+    first_name = forms.CharField(max_length=100)
+    last_name = forms.CharField(max_length=100)
+    email = forms.EmailField(max_length=100)

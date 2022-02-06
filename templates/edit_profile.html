@@ -1,6 +1,21 @@
 {% extends 'base_generic.html' %}
 {% block content %}
-<div class="container-fluid mt-3">
-
-</div>
+    <div class="container-fluid mt-3 text-center">
+        <h1 class=""> Edit your profile</h1>
+        <form class="form" method="post">
+            {% csrf_token %}
+            <ul class="form" style="list-style: none">
+                <li class="my-3">
+                    <label for="id_first_name"><strong>First name:</strong></label> {{ form.first_name }}
+                </li>
+                <li class="my-3">
+                    <label for="id_last_name"><strong>Last name:</strong></label> {{ form.last_name }}
+                </li>
+                <li class="my-3">
+                    <label for="id_email"><strong>Email:</strong></label> {{ form.email }}
+                </li>
+            </ul>
+            <input class="btn btn-dark" type="submit" value="Edit Profile">
+        </form>
+    </div>
 {% endblock %}
