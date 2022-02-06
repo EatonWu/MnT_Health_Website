@@ -15,10 +15,18 @@ def index(request):
         if form.is_valid():
             user = list(User.objects.filter(username__exact=request.user.username))[0]
             # return HttpResponse(form.cleaned_data['day'])
-            user.fitness_plan = FitnessPlan.objects.get(pk=form.cleaned_data['day'])
-            return_http_response = render(request, 'just_navbar.html')
+            plan = FitnessPlan.objects.get(pk=form.cleaned_data['day'])
+            plan.save()
+            user.fitness_plan = plan
+            user.save_base()
+            return_http_response = render(request, 'day_selector/day_select_success.html')
+            return_http_response.write("    <div class='container-fluid my-3 text-center' style='width: 70%;''>")
+            return_http_response.write("        <h1>Your Fitness Plans!</h1>")
+            return_http_response.write("        <h3>For {} days</h3>".format(plan.days))
             return_http_response.write(user.fitness_plan.workout_desc)
-        return return_http_response
+            return_http_response.write("    </div>")
+
+            return return_http_response
     else:
         form = forms.DayForm()
 
