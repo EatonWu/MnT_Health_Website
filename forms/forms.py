@@ -1,9 +1,10 @@
 from django import forms
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 
 class DayForm(forms.Form):
-    day = forms.IntegerField(label='How many days of the week do you want to exercise?', max_value=6, min_value=1)
+    day = forms.IntegerField(label=mark_safe('Select days of week you would like to exercise (1 - 6)'), max_value=6, min_value=1)
 
 
 class CalorieForm(forms.Form):
