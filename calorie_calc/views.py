@@ -3,9 +3,11 @@ from django.http import HttpResponse
 from forms import forms
 from backend import calorie_calc
 from healthhacks.models import User, CalorieCalc
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
+@login_required(login_url='/healthhacks/login/')
 def index(request):
     user = list(User.objects.filter(username__exact=request.user.username))[0]
     calculated = bool(user.calorie_count)
@@ -23,7 +25,7 @@ def index(request):
                 user.calorie_count.delete()
 
             calorie = CalorieCalc(age=data['age'], weight=data['weight'], height=data['height'], gender=data['gender'],
-                        activity=data['activity'], goal=data['goal'])
+                                  activity=data['activity'], goal=data['goal'])
             calorie.save()
             user.calorie_count = calorie
             user.save()

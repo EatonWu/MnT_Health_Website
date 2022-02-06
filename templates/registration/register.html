@@ -1,10 +1,12 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-    <h1>Create New Account</h1>
-    <form method="POST">
-         {% csrf_token %}
-        {{form.as_p}}
-        <button>Register</button>
-    </form>
+    <div class="container-fluid my-auto">
+        <h1 class="text-center my-3">Create New Account</h1>
+        <form class="m-3 d-flex flex-column justify-content-center" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark">Register</button>
+        </form>
+    </div>
 {% endblock %}

@@ -53,3 +53,23 @@ a:hover {
     display: inline-block;
     padding: 0 10px;
 }
+
+.login label {
+    font-weight: bold;
+    width: 20%;
+    margin: 10px 0;
+    align-self: center;
+}
+
+.login input, .login span {
+    width: 20%;
+    margin: 10px 0;
+    align-self: center;
+}
+
+.errorlist {
+    color: #00ff7e;
+    font-weight: bold;
+    list-style: none;
+    align-self: center;
+}

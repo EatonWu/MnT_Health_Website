@@ -4,7 +4,12 @@
         <h1>Find your Fitness Plan!</h1>
         <form action="/day_selector/" method="post">
             {% csrf_token %}
-            {{ form }}
+            <ul class="form" style="list-style: none">
+                <li>
+                    <label for="id_age"><strong>Type how many days of week you would like to exercise (1 - 6):</strong></label>
+                    {{ form.day }}
+                </li>
+            </ul>
             <input type="submit" value="Submit">
         </form>
     </div>
