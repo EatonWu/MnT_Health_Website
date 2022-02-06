@@ -24,7 +24,7 @@ def index(request):
                 return HttpResponse(
                     "(Option 1) The full body workout is recommended for those who want to increase overall strength and "
                     "don’t have much time in their schedule to workout. This plan consists of a few exercises to "
-                    "work each muscle group.<br> " + "<br> <br> 3-4 sets of 10-12 reps" +  "<br> Full Body Workout: " +
+                    "work each muscle group.<br> " + "<br> 3-4 sets of 10-12 reps" + "<br><br> Full Body Day: " +
                     "<br> -Barbell Deadlift"+ "<br> -Bench Press" + "<br> -Barbell Row" + "<br> -Dumbbell curls" +
                     "<br> -Barbell Back Squats" + "<br> -Rope Pushdowns" + "<br> -Lateral Raises <br>" +
                     "<br> <br>(Option 2) The Upper Lower Split is a divide and conquer workout split. "
@@ -69,16 +69,16 @@ def index(request):
                     "(Option 1) Push, Pull, Legs, Upper, Lower This workout split combines push,pull, legs which"
                     "works an entire muscle group on one day allowing for up to 3 days of rest and devoting the"
                     "other two days to your upper/lower body." + "<br> <br>"
-                                                                 " 3-4 sets of 10-12 reps" + "<br> <br> Push Workout: " + "<br> Seated Dumbbell Shoulder Press"
+                                                                 " 3-4 sets of 10-12 reps" + "<br> <br> Day 1 Push Workout: " + "<br> Seated Dumbbell Shoulder Press"
                     + "<br> Dumbbell Incline Press" + "<br> Body Weight Tricep Dips" + "<br> Rope Tricep Pushdowns"
-                    + "<br> Incline Dumbell Fly" + "<br> Dumbbell Lateral Raises" + "<br> <br> Pull Workout:"
+                    + "<br> Incline Dumbell Fly" + "<br> Dumbbell Lateral Raises" + "<br> <br> Day 2 Pull Workout:"
                     + "<br> Bent Over Cable Row" + "<br> Cable Push Down" + "<br> Dumbbell Shrugs" + "<br> Bicep Curls"
-                    + "<br> Hammer Curls" + "<br> Face Pulls" + "<br> <br> Leg Workout: " + "<br> Barbell Back Squats"
+                    + "<br> Hammer Curls" + "<br> Face Pulls" + "<br> <br> Day 3 Leg Workout: " + "<br> Barbell Back Squats"
                     + "<br> Seated Leg Extensions" + "<br> Calf Raises" + "<br> Seated Hamstring Curls"
-                    + "<br> Bulgarian Split Squats" + " to lower." + "<br> 3-4 sets of 10-12 reps" + "<br> <br> Upper Day:"
+                    + "<br> Bulgarian Split Squats" + " to lower." + "<br> 3-4 sets of 10-12 reps" + "<br> <br> Day 4 Upper Day:"
                                                                                                      "<br> -Bench Press" + "<br> -Bent Over Row"
                     + "<br> -Shoulder Press" + "<br> -Lat Pulldown" + "<br> -Tricep Extenstions"
-                    + "<br> -Side Lateral Raises" + "<br> -Pushups" + "<br><br> Lower Day:"
+                    + "<br> -Side Lateral Raises" + "<br> -Pushups" + "<br><br> Day 5 Lower Day:"
                     + "<br> Front Squats" + "<br> Straight Leg Deadlift" + "<br> Calf Raises" + "<br> Leg Extensions"
                     + "<br> Hamstring Curls" + "<br> Lunges" + "<br> <br>" + "(Option 2) One Muscle A Day: This workout split"
                                                                              " emphasizes a new part of the body each day of working out and allows for optimal rest." + "<br><br> 3-4 Sets of 10-12 Reps"
