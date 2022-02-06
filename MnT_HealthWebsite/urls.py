@@ -20,7 +20,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('day_selector/', include('day_selector.urls')),
     path('admin/', admin.site.urls),
+    path('calorie_calc/', include('calorie_calc.urls')),
     path('healthhacks/', include('healthhacks.urls')),
     path('', RedirectView.as_view(url='healthhacks/')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
