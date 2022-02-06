@@ -9,7 +9,6 @@ from healthhacks.models import User, CalorieCalc
 def index(request):
     user = list(User.objects.filter(username__exact=request.user.username))[0]
     calculated = bool(user.calorie_count)
-    calorie_goal = 0
 
     if request.method == "POST":
         form = forms.CalorieForm(request.POST)
@@ -24,7 +23,6 @@ def index(request):
             calorie.save()
             user.calorie_count = calorie
             user.save()
-            calorie_goal = user.calorie_count.get_goal()
             return redirect('calorie_complete')
     else:
         form = forms.CalorieForm()
@@ -32,7 +30,7 @@ def index(request):
     context = {
         'form': form,
         'calculated': calculated,
-        'calorie_count': calorie_goal
+        'calorie_count': user.calorie_count.get_goal(),
     }
 
     return render(request, 'calorie_calc/index.html', context=context)
