@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # our apps.
     'healthhacks.apps.HealthhacksConfig',
     'day_selector.apps.DaySelectorConfig',
+    'calorie_calc.apps.CalorieCalcConfig',
 ]
 
 MIDDLEWARE = [
