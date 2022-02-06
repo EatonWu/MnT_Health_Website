@@ -10,6 +10,10 @@ def index(request):
     user = list(User.objects.filter(username__exact=request.user.username))[0]
     calculated = bool(user.calorie_count)
 
+    calorie_count = 0
+    if calculated:
+        calorie_count = user.calorie_count.get_goal()
+
     if request.method == "POST":
         form = forms.CalorieForm(request.POST)
 
@@ -30,7 +34,7 @@ def index(request):
     context = {
         'form': form,
         'calculated': calculated,
-        'calorie_count': user.calorie_count.get_goal(),
+        'calorie_count': calorie_count,
     }
 
     return render(request, 'calorie_calc/index.html', context=context)
