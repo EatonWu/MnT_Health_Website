@@ -94,20 +94,16 @@ class CalorieCalc(models.Model):
         help_text='Select your weight goal.'
     )
 
-    BMR = backend.calorie_calc.calc(gender, weight, height, age)
-
-    cals = backend.calorie_calc.cals(BMR, activity, goal)
-
     # Metadata
     class Meta:
         ordering = ['-age']
 
     def __str__(self):
-        return f'{self.cals}'
+        return f'{self.age}'
 
     def get_absolute_url(self):
         """Returns the url to access a particular instance of MyModelName."""
-        return reverse('model-detail-view', args=[str(self.cals)])
+        return reverse('model-detail-view', args=[str(self.age)])
 
 
 class FitnessPlan(models.Model):
