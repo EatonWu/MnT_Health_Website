@@ -14,7 +14,15 @@ def index(request):
                 form.cleaned_data['height'],
                 form.cleaned_data['age']
             )
-            return HttpResponse(int(value))
+            if form.cleaned_data['goal'] == 'm':
+                activity = calorie_calc.cals(value,form.cleaned_data['activity'],'m')
+                return HttpResponse("To Maintain your weight you should eat: " + str(int(activity)) + " calories")
+            elif form.cleaned_data['goal'] == 'g':
+                gain = calorie_calc.cals(value, form.cleaned_data['activity'],'g')
+                return HttpResponse("To Gain Weight you should eat: " + str(int(gain)) + " calories")
+            else:
+                lose = calorie_calc.cals(value,form.cleaned_data['activity'], 'l')
+                return HttpResponse("To Lose Weight you should eat: " + str(int(lose)) + " calories")
     else:
         form = forms.CalorieForm()
 
