@@ -7,9 +7,9 @@ class DayForm(forms.Form):
 
 
 class CalorieForm(forms.Form):
-    age = forms.IntegerField(help_text='Enter age.')
-    weight = forms.IntegerField(help_text='Enter weight.')
-    height = forms.IntegerField(help_text='Enter height in inches.')
+    age = forms.IntegerField(label='Enter age:', help_text='\n', min_value=0)
+    weight = forms.IntegerField(label='Enter weight:', help_text='\n', min_value=0)
+    height = forms.IntegerField(label='Enter height:', help_text='\n', min_value=0)
 
     GENDER_ID = (
         ('M', 'Male'),
@@ -19,21 +19,23 @@ class CalorieForm(forms.Form):
     gender = forms.CharField(
         max_length=1,
         widget=forms.Select(choices=GENDER_ID),
-        help_text='Enter gender.'
+        label='Select gender:',
+        help_text='\n'
     )
 
     ACTIVITY_LEVEL = (
-        ('s', 'sedentary'),
-        ('l', 'light'),
-        ('m', 'moderate'),
-        ('v', 'very'),
-        ('e', 'extremely')
+        ('s', 'Sedentary'),
+        ('l', 'Light Activity'),
+        ('m', 'Moderate Activity'),
+        ('v', 'Very Active'),
+        ('e', 'Extremely Active')
     )
 
     activity = forms.CharField(
         max_length=1,
         widget=forms.Select(choices=ACTIVITY_LEVEL),
-        help_text='Select your level of daily activity.'
+        label='Select activity level:',
+        help_text='\n'
     )
 
     GOAL_WEIGHT = (
@@ -45,5 +47,6 @@ class CalorieForm(forms.Form):
     goal = forms.CharField(
         max_length=1,
         widget=forms.Select(choices=GOAL_WEIGHT),
-        help_text='Select your weight goal.'
+        label='Select weight goal:',
+        help_text='\n'
     )
