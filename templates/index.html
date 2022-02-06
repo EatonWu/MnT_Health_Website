@@ -2,7 +2,11 @@
 
 {% block content %}
     <h1 class="d-flex justify-content-center" style="font-size: 70px; height: 200px; align-items: center">
-        Welcome, user {{ user.username }}
+        {% if user.username %}
+            Welcome, {{ user.username }}
+        {% else %}
+            Welcome! Please login.
+        {% endif %}
     </h1>
     <h2 class="d-flex justify-content-center" style="height: 100px">Please select one of the options below.</h2>
     <div class="row text-center m-auto">
@@ -13,7 +17,8 @@
         </div>
         <div class="col my-auto">
             <div class="card rounded-3 m-auto">
-                <a class="rounded-3" href="{% url 'fitness_index' %}"><span class="card-item">Fitness Planning™</span></a>
+                <a class="rounded-3" href="{% url 'fitness_index' %}"><span
+                        class="card-item">Fitness Planning™</span></a>
             </div>
         </div>
         <div class="col my-auto">

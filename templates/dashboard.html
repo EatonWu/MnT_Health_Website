@@ -1,30 +1,33 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-    <div class="container-fluid mt-3">
-        <h1>Welcome,
+    <div class="mt-3" style="border-radius: 10px; background: rgba(0,0,0,0.67); padding: 30px; margin: 100px 30px 0 30px">
+        <h1 class="text-center">Welcome,
             {% if first_name %}
                 {{ first_name }} {{ last_name }}
             {% else %}
                 user {{ user.username }}
             {% endif %}
         </h1>
-        <ul>
-            <li><strong>First Name:</strong> {{ first_name }}</li>
-            <li><strong>Last Name:</strong> {{ last_name }}</li>
-            <li><strong>Email:</strong> {{ email }}</li>
-            <li><strong>Calorie Count:</strong>
+        <ul class="list-unstyled">
+            <li class="my-2"><strong>First Name:</strong> {{ first_name }}</li>
+            <li class="my-2"><strong>Last Name:</strong> {{ last_name }}</li>
+            <li class="my-2"><strong>Email:</strong> {{ email }}</li>
+            <li class="my-2"><strong>Calorie Count:</strong>
                 {% if calorie_count %}
-                    {{ calorie_count }}
+                    <span style="color: #3eff91">{{ calorie_count }}</span>
                 {% else %}
                     <a class="profile_link" href="{% url 'calorie_index' %}"> Get your Calorie Count!</a>
                 {% endif %}</li>
-            <li><strong>Fitness Plan:</strong>
+            <li class="my-2"><strong>Fitness Plan:</strong>
                 {% if fitness_plan %}
                     {{ fitness_plan }}
                 {% else %}
                     <a class="profile_link" href="{% url 'fitness_index' %}"> Get your Fitness Plan!</a>
                 {% endif %}
+            </li>
+            <li class="my-2" style="padding-top: 30px">
+                <a class="btn btn-light" href="{% url 'edit_profile' %}"> Edit your profile</a>
             </li>
         </ul>
     </div>

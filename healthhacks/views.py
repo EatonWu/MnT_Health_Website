@@ -36,3 +36,8 @@ def register_view(request):
     else:
         form = UserCreationForm()
     return render(request, 'registration/register.html', {'form': form})
+
+
+@login_required(login_url='/healthhacks/login')
+def edit_profile(request):
+    user = list(User.objects.filter(username__exact=request.user.username))[0]
