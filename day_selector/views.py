@@ -4,6 +4,7 @@ from forms import forms
 
 
 # The index will prompt users for a number of days
+# /dayselector/
 def index(request):
     if request.method == "POST":
         form = forms.DayForm(request.POST)
@@ -113,7 +114,7 @@ def index(request):
 
     return render(request, 'day_selector/index.html', {'form': form})
 
-
+# /day_selector/day
 def day_selected(request, day):
     if 1 <= day <= 6:
         return HttpResponse("%s" % day)
