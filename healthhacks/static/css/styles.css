@@ -3,10 +3,21 @@ html {
     font-size: 20px;
 }
 
+body {
+    color: white;
+}
+
 .nav-link {
     margin: auto 15px;
 }
 
+a {
+    color: white;
+}
+
+a:hover {
+    color: #3eff91;
+}
 
 .card {
     text-align: center;
@@ -24,4 +35,16 @@ html {
 .card a:hover {
     background-color: rgba(255, 255, 255, 0.75);
     color: black;
+}
+
+.form li {
+    padding-bottom: 10px;
+}
+
+.form li div {
+    display: inline-block;
+}
+
+.form li div div {
+    display: inline;
 }

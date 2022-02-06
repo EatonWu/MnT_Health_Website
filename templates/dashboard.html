@@ -1,5 +1,31 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-    <h1>Welcome, {{user.username}}</h1>
+    <div class="container-fluid mt-3">
+        <h1>Welcome,
+            {% if first_name %}
+                {{ first_name }} {{ last_name }}
+            {% else %}
+                user {{ user.username }}
+            {% endif %}
+        </h1>
+        <ul>
+            <li><strong>First Name:</strong> {{ first_name }}</li>
+            <li><strong>Last Name:</strong> {{ last_name }}</li>
+            <li><strong>Email:</strong> {{ email }}</li>
+            <li><strong>Calorie Count:</strong>
+                {% if calorie_count %}
+                    {{ calorie_count }}
+                {% else %}
+                    <a class="profile_link" href="{% url 'calorie_index' %}"> Get your Calorie Count!</a>
+                {% endif %}</li>
+            <li><strong>Fitness Plan:</strong>
+                {% if fitness_plan %}
+                    {{ fitness_plan }}
+                {% else %}
+                    <a class="profile_link" href="{% url 'fitness_index' %}"> Get your Fitness Plan!</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
 {% endblock %}

@@ -1,36 +1,18 @@
+import math
+
 from django.db import models
 from django.urls import reverse
-import backend.calorie_calc
+from backend.calorie_calc import *
 
 
 # Create your models here.
-
-class MyModelName(models.Model):
-    """A typical class defining a model, derived from the Model class."""
-
-    # Fields
-    my_field_name = models.CharField(max_length=20, help_text='Enter field documentation')
-    ...
-
-    # Metadata
-    class Meta:
-        ordering = ['-my_field_name']
-
-    # Methods
-    def get_absolute_url(self):
-        """Returns the url to access a particular instance of MyModelName."""
-        return reverse('model-detail-view', args=[str(self.id)])
-
-    def __str__(self):
-        """String for representing the MyModelName object (in Admin site etc.)."""
-        return self.my_field_name
-
 
 class User(models.Model):
     # fields
     first_name = models.CharField(max_length=20, help_text='Enter first name.')
     last_name = models.CharField(max_length=20, help_text='Enter last name.')
     email = models.CharField(max_length=40, help_text='Enter email.')
+    username = models.CharField(max_length=150, help_text='Enter username.', default="user")
     calorie_count = models.ForeignKey("CalorieCalc", on_delete=models.SET_NULL, null=True)
     fitness_plan = models.ForeignKey("FitnessPlan", on_delete=models.SET_NULL, null=True)
 
@@ -39,17 +21,13 @@ class User(models.Model):
         ordering = ['first_name']
 
     def __str__(self):
-        return f'{self.first_name} ({self.last_name})'
-
-    def get_absolute_url(self):
-        """Returns the url to access a particular instance of MyModelName."""
-        return reverse('model-detail-view', args=[str(self.id)])
+        return f'{self.username}'
 
 
 class CalorieCalc(models.Model):
     age = models.PositiveSmallIntegerField(help_text='Enter age.')
-    weight = models.PositiveSmallIntegerField(help_text='Enter weight.')
-    height = models.PositiveSmallIntegerField(help_text='Enter height in inches.')
+    weight = models.PositiveSmallIntegerField(help_text='Enter weight (lbs).')
+    height = models.PositiveSmallIntegerField(help_text='Enter height (inches).')
 
     GENDER_ID = (
         ('M', 'Male'),
@@ -65,11 +43,11 @@ class CalorieCalc(models.Model):
     )
 
     ACTIVITY_LEVEL = (
-        ('s', 'sedentary'),
-        ('l', 'light'),
-        ('m', 'moderate'),
-        ('v', 'very'),
-        ('e', 'extremely')
+        ('s', 'Sedentary'),
+        ('l', 'Light'),
+        ('m', 'Moderate'),
+        ('v', 'Very'),
+        ('e', 'Extremely')
     )
 
     activity = models.CharField(
@@ -98,12 +76,16 @@ class CalorieCalc(models.Model):
     class Meta:
         ordering = ['-age']
 
-    def __str__(self):
-        return f'{self.age}'
+    def get_goal(self):
+        bmr = calculate_BMR(self.gender, self.weight, self.height, self.age)
+        return str(math.floor(find_goal(bmr, self.activity, self.goal))) + " calories"
 
-    def get_absolute_url(self):
-        """Returns the url to access a particular instance of MyModelName."""
-        return reverse('model-detail-view', args=[str(self.age)])
+    def __str__(self):
+        return f'{self.get_goal()}'
+
+
+class Exercise(models.Model):
+    name = models.CharField(max_length=100)
 
 
 class FitnessPlan(models.Model):
@@ -130,7 +112,3 @@ class FitnessPlan(models.Model):
 
     def __str__(self):
         return f'{self.days}'
-
-    def get_absolute_url(self):
-        """Returns the url to access a particular instance of MyModelName."""
-        return reverse('model-detail-view', args=[str(self.id)])

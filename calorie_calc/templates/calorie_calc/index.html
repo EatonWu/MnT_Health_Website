@@ -1,9 +1,40 @@
 {% extends 'base_generic.html' %}
 
 {% block content %}
-<form action="/calorie_calc/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+    <div class="container-fluid mt-3 text-center">
+        {% if calculated %}
+            <h2 style="height: 50px; ">You already have a calorie count! Submitting a new calculation will reset your
+                count.</h2>
+            <h3 style="height: 100px">Your current calorie count: <span style="color: #3eff91;">{{ calorie_count }}</span></h3>
+        {% else %}
+            <h2 style="height: 50px;">Enter your data and get your calorie count with our Calculator!</h2>
+        {% endif %}
+
+        <h4 style="margin-bottom: 30px">Calorie Calculator™</h4>
+        <form action="/calorie_calc/" method="post" style="display: block">
+            {% csrf_token %}
+            <ul class="form" style="list-style: none">
+                <li>
+                    <label for="id_age"><strong>Age (1-100):</strong></label> {{ form.age }}
+                </li>
+                <li>
+                    <label for="id_weight"><strong>Weight (lbs):</strong></label> {{ form.weight }}
+                </li>
+                <li>
+                    <label for="id_height"><strong>Height (inches):</strong></label> {{ form.height }}
+                </li>
+                <li>
+                    <label for="id_gender"><strong>Gender:</strong></label> {{ form.gender }}
+                </li>
+                <li>
+                    <label for="id_activity"><strong>Activity Level:</strong></label> {{ form.activity }}
+                </li>
+                <li>
+                    <label for="id_goal"><strong>What is your goal?</strong></label> {{ form.goal }}
+                </li>
+            </ul>
+            <input type="submit" value="Submit">
+        </form>
+        <p>Source: <a target="_blank" href="https://www.checkyourhealth.org/eat-healthy/cal_calculator.php">checkyourhealth.org</a></p>
+    </div>
 {% endblock %}

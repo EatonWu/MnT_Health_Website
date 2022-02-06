@@ -1,4 +1,4 @@
-def calc(gender, weight, height, age):
+def calculate_BMR(gender, weight, height, age):
     BMR = 0
     if gender == 'M':
         BMR = 66 + (6.3 * weight) + (12.9 * height) - (6.8 * age)
@@ -7,7 +7,7 @@ def calc(gender, weight, height, age):
     return BMR
 
 
-def cals(BMR, activity, choice):
+def find_goal(BMR, activity, choice):
     cals = 0
     if activity == 's':
         cals = BMR * 1.2
