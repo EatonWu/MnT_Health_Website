@@ -22,19 +22,23 @@ a:hover {
 .card {
     text-align: center;
     font-family: 'Segoe UI', sans-serif;
-    background-color: rgba(255, 255, 255, 0.48);
+    background-color: rgba(54, 54, 54, 0.63);
 }
 
 .card a {
-    padding: 140px;
+    padding: 100px;
     text-decoration-line: none;
     color: #ffffff;
-    font-size: 45px;
+    height: 300px;
 }
 
 .card a:hover {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(68, 245, 171, 0.84);
     color: black;
+}
+
+.card-item {
+    font-size: 40px;
 }
 
 .form li {
@@ -46,5 +50,6 @@ a:hover {
 }
 
 .form li div div {
-    display: inline;
+    display: inline-block;
+    padding: 0 10px;
 }

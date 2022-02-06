@@ -5,20 +5,20 @@
         Welcome, user {{ user.username }}
     </h1>
     <h2 class="d-flex justify-content-center" style="height: 100px">Please select one of the options below.</h2>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center m-auto">
+    <div class="row text-center m-auto">
         <div class="col my-auto">
             <div class="card rounded-3 m-auto">
-                <a href="{% url 'calorie_index' %}">Calorie Calculator™</a>
+                <a class="rounded-3" href="{% url 'calorie_index' %}"><span class="card-item">Calorie Calculator™</span></a>
             </div>
         </div>
         <div class="col my-auto">
             <div class="card rounded-3 m-auto">
-                <a href="{% url 'fitness_index' %}">Fitness Planning™</a>
+                <a class="rounded-3" href="{% url 'fitness_index' %}"><span class="card-item">Fitness Planning™</span></a>
             </div>
         </div>
         <div class="col my-auto">
             <div class="card rounded-3 m-auto">
-                <a href="{% url 'dashboard' %}">Update Profile</a>
+                <a class="rounded-3" href="{% url 'dashboard' %}"><span class="card-item">Dashboard</span></a>
             </div>
         </div>
     </div>

@@ -4,7 +4,24 @@ from django.utils.safestring import mark_safe
 
 
 class DayForm(forms.Form):
-    day = forms.IntegerField(label=mark_safe('Select days of week you would like to exercise (1 - 6)'), max_value=6, min_value=1)
+    day = forms.IntegerField(label=mark_safe('Select days of week you would like to exercise (1 - 6)'), max_value=6,
+                             min_value=1)
+
+    WORKOUT_DAYS = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6, '6'),
+        (7, '7')
+    )
+
+    days = forms.CharField(
+        max_length=1,
+        widget=forms.RadioSelect(choices=WORKOUT_DAYS),
+        help_text='Choose how many days you will work out in a week.'
+    )
 
 
 class CalorieForm(forms.Form):

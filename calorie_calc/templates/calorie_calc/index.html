@@ -5,7 +5,8 @@
         {% if calculated %}
             <h2 style="height: 50px; ">You already have a calorie count! Submitting a new calculation will reset your
                 count.</h2>
-            <h3 style="height: 100px">Your current calorie count: <span style="color: #3eff91;">{{ calorie_count }}</span></h3>
+            <h3 style="height: 100px">Your current calorie count: <span
+                    style="color: #3eff91;">{{ calorie_count }}</span></h3>
         {% else %}
             <h2 style="height: 50px;">Enter your data and get your calorie count with our Calculator!</h2>
         {% endif %}
@@ -35,6 +36,9 @@
             </ul>
             <input type="submit" value="Submit">
         </form>
-        <p>Source: <a target="_blank" href="https://www.checkyourhealth.org/eat-healthy/cal_calculator.php">checkyourhealth.org</a></p>
     </div>
+    <footer class="text-center" style="position: absolute; bottom: 0; align-content: center; margin-left: 20px">
+        <p>Source: <a target="_blank" href="https://www.checkyourhealth.org/eat-healthy/cal_calculator.php">checkyourhealth.org</a>
+        </p>
+    </footer>
 {% endblock %}
