@@ -1,18 +1,27 @@
-
-.btn {
-    color: white;
-    background-color: rgba(255, 0, 0, 0.65);
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 
-.btn:hover {
-    background-color: rgba(255, 0, 0, 0.90);
+.nav-link {
+    margin: auto 15px;
 }
+
 
 .card {
-    padding: 50px;
-    background-color: aqua;
-    width: 300px;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 30px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: rgba(255, 255, 255, 0.48);
+}
+
+.card a {
+    padding: 140px;
+    text-decoration-line: none;
+    color: #ffffff;
+    font-size: 45px;
+}
+
+.card a:hover {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: black;
 }

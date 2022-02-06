@@ -1,11 +1,21 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <div class="mx-5">
-        <ul class="d-flex justify-content-between list-unstyled">
-            <li class="card"><a href="#">Calorie Calculator™</a></li>
-            <li class="card"><a href="#">Fitness Planning™</a></li>
-            <li class="card"><a href="#">Forums</a></li>
-        </ul>
-    </div>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center m-auto vh-100 bg-primary">
+            <div class="col my-auto">
+                <div class="card rounded-3 m-auto">
+                    <a href="#">Calorie Calculator™</a>
+                </div>
+            </div>
+            <div class="col my-auto">
+                <div class="card rounded-3 m-auto">
+                    <a href="#">Fitness Planning™</a>
+                </div>
+            </div>
+            <div class="col my-auto">
+                <div class="card rounded-3 m-auto">
+                    <a href="#">Update Profile</a>
+                </div>
+            </div>
+        </div>
 {% endblock %}
