@@ -1,2 +1,2 @@
-web: gunicorn MnT_Health_Website.wsgi --log-file -
-worker: python manage.py runserver
+release: python manage.py migrate
+web: gunicorn MnT_HealthWebsite.wsgi --log-file=-

@@ -15,6 +15,8 @@ import os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django_heroku
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-^)ipkal(m@v^*dv@#sf)vqk5!8o_j^h-oit!8yu-!kx=pdt%(j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["fierce-thicket-15349.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["health-hacks-2022.herokuapp.com", "127.0.0.1"]
 
 # Application definition
 
@@ -79,8 +81,12 @@ WSGI_APPLICATION = 'MnT_HealthWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dfpmcgmfv570da',
+        'USER': 'fugmskievezkiy',
+        'PASSWORD': 'ff72df6a8d1a6173843df135036a0c2ca688df6d6ba0d4ce85248b9aae1526bb',
+        'HOST': 'ec2-34-233-157-189.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -117,9 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
