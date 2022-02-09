@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'dfpmcgmfv570da',
         'USER': 'fugmskievezkiy',
         'PASSWORD': 'ff72df6a8d1a6173843df135036a0c2ca688df6d6ba0d4ce85248b9aae1526bb',
-        'HOST': 'ff72df6a8d1a6173843df135036a0c2ca688df6d6ba0d4ce85248b9aae1526bb',
+        'HOST': 'ec2-34-233-157-189.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
