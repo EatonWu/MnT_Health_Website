@@ -1,7 +1,7 @@
 # HealthHacks Website
 
 Made during the first annual M&T Bank's Meet & Hack in 2022. A website that uses the Django web framework and a
-PostgresSQL database to enable user authentication. Front-end built with HTML template files, CSS, and Bootstrap.
+SQLite database to enable user authentication. Front-end built with HTML template files, CSS, and Bootstrap.
 
 ## Live Demo (Heroku App)
 
